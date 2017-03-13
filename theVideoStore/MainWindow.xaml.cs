@@ -24,5 +24,37 @@ namespace theVideoStore
         {
             InitializeComponent();
         }
+
+        private void textLogin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textLogin.Text))
+            {
+                textLogin.Visibility = System.Windows.Visibility.Collapsed;
+                textLoginHint.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+
+        private void textLoginHint_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textLoginHint.Visibility = System.Windows.Visibility.Collapsed;
+            textLogin.Visibility = System.Windows.Visibility.Visible;
+            textLogin.Focus();
+        }
+
+        private void textPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textPassword.Text))
+            {
+                textPassword.Visibility = System.Windows.Visibility.Collapsed;
+                textPasswordHint.Visibility = System.Windows.Visibility.Visible;
+            }
+        }
+
+        private void textPasswordHint_GotFocus(object sender, RoutedEventArgs e)
+        {
+            textPasswordHint.Visibility = System.Windows.Visibility.Collapsed;
+            textPassword.Visibility = System.Windows.Visibility.Visible;
+            textPassword.Focus();
+        }
     }
 }
