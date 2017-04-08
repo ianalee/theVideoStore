@@ -41,11 +41,11 @@ namespace theVideoStore
             textLogin.Focus();
         }
 
-        private void textPassword_LostFocus(object sender, RoutedEventArgs e)
+        private void Password_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(textPassword.Text))
+            if (string.IsNullOrEmpty(Password.Password))
             {
-                textPassword.Visibility = System.Windows.Visibility.Collapsed;
+                Password.Visibility = System.Windows.Visibility.Collapsed;
                 textPasswordHint.Visibility = System.Windows.Visibility.Visible;
             }
         }
@@ -53,8 +53,32 @@ namespace theVideoStore
         private void textPasswordHint_GotFocus(object sender, RoutedEventArgs e)
         {
             textPasswordHint.Visibility = System.Windows.Visibility.Collapsed;
-            textPassword.Visibility = System.Windows.Visibility.Visible;
-            textPassword.Focus();
+            Password.Visibility = System.Windows.Visibility.Visible;
+            Password.Focus();
+        }
+
+        private void textPasswordHint_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            if (textLogin.Text == "admin")
+            {
+                if (Password.Password == "admin")
+                {
+                    IndexWindow inx = new IndexWindow();
+                    inx.ShowDialog();
+                }
+            }
+            else
+                MessageBox.Show("Неправильный логин или пароль");
+        }
+
+        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
