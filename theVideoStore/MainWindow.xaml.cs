@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace theVideoStore
 {
@@ -69,7 +70,8 @@ namespace theVideoStore
                 if (Password.Password == "admin")
                 {
                     IndexWindow inx = new IndexWindow();
-                    inx.ShowDialog();
+                    this.Close();
+                    inx.Show();
                 }
             }
             else
@@ -78,6 +80,9 @@ namespace theVideoStore
 
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)
         {
+            RegistrationWindow reg = new RegistrationWindow();
+            this.Close();
+            reg.Show();
 
         }
     }
