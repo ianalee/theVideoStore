@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using theVideoStore.Pages;
 
 namespace theVideoStore
 {
@@ -22,6 +23,16 @@ namespace theVideoStore
         public IndexWindow()
         {
             InitializeComponent();
+        }
+
+        private void BtnClick1(object sender, RoutedEventArgs e)
+        {
+            Home.Content = new silenceOfTheLambs();
+        }
+
+        private void BtnClick2(object sender, RoutedEventArgs e)
+        {
+            Home.Content = new forrestGump();
         }
     }
 }

@@ -8,10 +8,10 @@
         Title="Registration" MinHeight="350" MinWidth="525">
     <Grid Margin="0,0,2,-6">
         <Grid.Background>
-            <ImageBrush ImageSource="matilda.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="images/matilda.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <StackPanel VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="99,60,88,73">
-            <Image x:Name="image" Height="65" Width="Auto" Source="label.png"/>
+            <Image x:Name="image" Height="65" Width="Auto" Source="images/label.png"/>
             <Grid>
                 <TextBox x:Name="UserName" LostFocus="UserName_LostFocus" Margin="50,10,39,0" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
                 <TextBox x:Name="UserNameHint" GotFocus="UserNameHint_GotFocus" Margin="50,10,39,0" Text="Username" VerticalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>

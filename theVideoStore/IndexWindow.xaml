@@ -5,14 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:theVideoStore"
         mc:Ignorable="d"
-        Title="IndexWindow" Height="300" Width="300">
+        Title="Home" MinHeight="300" MinWidth="300">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="147*"/>
-            <ColumnDefinition Width="145*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="174" Margin="10,23,0,0" VerticalAlignment="Top" Width="170" Grid.ColumnSpan="2"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="60,23,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
-
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
+            <ScrollViewer>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <Button Height="160" Width="120" Click="BtnClick1">
+                        <Button.Background>
+                            <ImageBrush ImageSource="images/silenceOfTheLambsIcon.jpg" Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Height="160" Width="120" Click="BtnClick2">
+                        <Button.Background>
+                            <ImageBrush ImageSource="images/forrestGumpIcon.jpg" Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Height="160" Width="120" Click="BtnClick2">
+                        <Button.Background>
+                            <ImageBrush ImageSource="images/forrestGumpIcon.jpg" Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Height="160" Width="120" Click="BtnClick2">
+                        <Button.Background>
+                            <ImageBrush ImageSource="images/forrestGumpIcon.jpg" Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Height="160" Width="120" Click="BtnClick2">
+                        <Button.Background>
+                            <ImageBrush ImageSource="images/forrestGumpIcon.jpg" Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
+                    <Button Height="160" Width="120" Click="BtnClick2">
+                        <Button.Background>
+                            <ImageBrush ImageSource="images/forrestGumpIcon.jpg" Stretch="Fill"/>
+                        </Button.Background>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+            <Frame x:Name="Home" Grid.ColumnSpan="2"/>
+        </StackPanel>
     </Grid>
 </Window>

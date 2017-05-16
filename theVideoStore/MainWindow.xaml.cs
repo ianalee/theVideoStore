@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Data.SQLite;
 
 namespace theVideoStore
 {
@@ -23,6 +22,7 @@ namespace theVideoStore
     {
         public MainWindow()
         {
+           
             InitializeComponent();
         }
 
@@ -65,13 +65,13 @@ namespace theVideoStore
 
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-            if (textLogin.Text == "admin")
+                if (textLogin.Text == "admin")
             {
                 if (Password.Password == "admin")
                 {
-                    IndexWindow inx = new IndexWindow();
+                    IndexWindow home = new IndexWindow();
                     this.Close();
-                    inx.Show();
+                    home.Show();
                 }
             }
             else
