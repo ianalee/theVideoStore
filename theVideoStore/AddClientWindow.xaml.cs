@@ -53,12 +53,29 @@ namespace theVideoStore
                 return;
             }
 
+            DateTime value;
+
+            if (DateTime.TryParseExact(textBoxFrom.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out value) == false)
+            {
+                MessageBox.Show("Введите дату начала аренды в формате ДД/ММ/ГГГГ", "Ошибка");
+                textBoxFrom.Focus();
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(textBoxTill.Text))
             {
                 MessageBox.Show("Введите дату окнчания аренды", "Ошибка");
                 textBoxTill.Focus();
                 return;
             }
+
+            if (DateTime.TryParseExact(textBoxTill.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out value) == false)
+            {
+                MessageBox.Show("Введите дату окончания аренды в формате ДД/ММ/ГГГГ", "Ошибка");
+                textBoxTill.Focus();
+                return;
+            }
+
             _newClient = new Client(textBoxName.Text, textBoxSurname.Text, textBoxFrom.Text, textBoxTill.Text);
 
             DialogResult = true;

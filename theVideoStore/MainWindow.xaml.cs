@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -63,19 +64,25 @@ namespace theVideoStore
 
         }
 
+        private string CalculateHash(string password)
+        {
+            MD5 md5 = MD5.Create();
+            var hash = md5.ComputeHash(Encoding.ASCII.GetBytes(password));
+            return Convert.ToBase64String(hash);
+        }
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-                if (textLogin.Text == "admin")
-            {
-                if (Password.Password == "admin")
+
+            var hash = CalculateHash("ilovechocolate");
+
+            if (textLogin.Text == "Iana" && CalculateHash(Password.Password) == hash)
                 {
                     IndexWindow home = new IndexWindow();
                     this.Close();
                     home.Show();
                 }
-            }
             else
-                MessageBox.Show("Неправильный логин или пароль");
+                MessageBox.Show("Incorrect login/password");
         }
 
         private void ButtonRegister_Click(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:theVideoStore"
         mc:Ignorable="d"
         Title="Home" MinHeight="300" MinWidth="300">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch">
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.ColumnSpan="2">
             <ScrollViewer>
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
@@ -42,7 +42,7 @@
                     </Button>
                 </StackPanel>
             </ScrollViewer>
-            <Frame x:Name="Home" Grid.ColumnSpan="2"/>
+            <Frame x:Name="Home" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"/>
         </StackPanel>
     </Grid>
 </Window>

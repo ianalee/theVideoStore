@@ -69,5 +69,18 @@ namespace theVideoStore
         {
 
         }
+
+        private void selectionChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            buttonDelete.IsEnabled = (dataGrid.SelectedIndex != -1);
+        }
+
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            clients.RemoveAt(dataGrid.SelectedIndex);
+            dataGrid.ItemsSource = null;
+            dataGrid.ItemsSource = clients;
+            serializeData();
+        }
     }
 }

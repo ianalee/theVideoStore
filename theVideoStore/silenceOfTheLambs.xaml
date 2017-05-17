@@ -8,12 +8,17 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="silenceOfTheLambs">
 
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid>
         <StackPanel Orientation="Horizontal">
             <Grid Background="Black" Width="Auto">
-                <Label Content="Silence of the Lambs" Foreground="White" FontFamily="Arial" Margin="0,0,38,0"/>
-                <Button x:Name="buttonAdd" Content="New client" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
-                <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,135,10,0" VerticalAlignment="Top" Height="Auto" Width="Auto" SelectionChanged="dataGrid_SelectionChanged"/>
+                <StackPanel>
+                <Label Content="Silence of the Lambs (1991)" Foreground="White" FontFamily="Arial" Margin="0,0,38,0" FontWeight="Bold"/>
+                <TextBlock MaxWidth="200" Height="63" Foreground="White" TextWrapping="Wrap" Text="A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another killer who skins his victims."/>
+                <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Height="Auto" Width="Auto" SelectionChanged="dataGrid_SelectionChanged"/>     
+                <Button x:Name="buttonAdd" Content="New client" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
+                <Button x:Name="buttonDelete" Content="Delete Client" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click"/>
+               
+               </StackPanel>
             </Grid>
             <Image Source="images/silenceOfTheLambs.jpg" Stretch="Fill"/>
         </StackPanel>
