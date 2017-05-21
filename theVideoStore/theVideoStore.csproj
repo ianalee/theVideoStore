@@ -81,6 +81,7 @@
     <Compile Include="forrestGump.xaml.cs">
       <DependentUpon>forrestGump.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Logger.cs" />
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>

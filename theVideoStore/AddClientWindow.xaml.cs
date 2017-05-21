@@ -30,6 +30,13 @@ namespace theVideoStore
             InitializeComponent();
         }
 
+        public AddClientWindow(string name, string surname, string from, string till)
+        {
+            textBoxName.Text = Convert.ToString(name);
+            textBoxSurname.Text = Convert.ToString(surname);
+            textBoxFrom.Text = Convert.ToString(from);
+            textBoxTill.Text = Convert.ToString(till);   
+        }
         private void AddClient_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBoxName.Text))

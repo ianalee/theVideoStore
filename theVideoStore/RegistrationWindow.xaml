@@ -10,15 +10,19 @@
         <Grid.Background>
             <ImageBrush ImageSource="images/matilda.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
-        <StackPanel VerticalAlignment="Center"  HorizontalAlignment="Center" Margin="99,60,88,73">
+        <StackPanel VerticalAlignment="Center"  HorizontalAlignment="Center">
             <Image x:Name="image" Height="65" Width="Auto" Source="images/label.png"/>
             <Grid>
-                <TextBox x:Name="UserName" LostFocus="UserName_LostFocus" Margin="50,10,39,0" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
-                <TextBox x:Name="UserNameHint" GotFocus="UserNameHint_GotFocus" Margin="50,10,39,0" Text="Username" VerticalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
-                <TextBox x:Name="Password" LostFocus="Password_LostFocus" Margin="50,64,39,0"  VerticalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
-                <TextBox x:Name="PasswordHint" GotFocus="PasswordHint_GotFocus" Margin="50,64,39,0" Text="Password" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
-                <Button x:Name="Register" Content="Register" VerticalContentAlignment="Center" Margin="29,110,21,0"  Height="30" Width="Auto" MaxWidth="200" FontSize="16" Cursor="Hand" Background="#FFB7D8A0"/>
-            </Grid>
+                <TextBox x:Name="Name" LostFocus="Name_LostFocus" Margin="50,10,39,0"  VerticalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+                <TextBox x:Name="NameHint" GotFocus="NameHint_GotFocus" Margin="50,10,39,0" Text="Name" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+                <TextBox x:Name="Surname" LostFocus="Surname_LostFocus" Margin="50,50,39,0"  VerticalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+                <TextBox x:Name="SurnameHint" GotFocus="SurnameHint_GotFocus" Margin="50,50,39,0" Text="Surname" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+                <TextBox x:Name="UserName" LostFocus="UserName_LostFocus" Margin="50,90,39,0" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+                <TextBox x:Name="UserNameHint" GotFocus="UserNameHint_GotFocus" Margin="50,90,39,0" Text="Username" VerticalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+                <TextBox x:Name="Password" LostFocus="Password_LostFocus" Margin="50,130,39,0"  VerticalContentAlignment="Center" TextWrapping="Wrap"  VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+                <TextBox x:Name="PasswordHint" GotFocus="PasswordHint_GotFocus" Margin="50,130,39,0" Text="Password" VerticalContentAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="Auto" MaxWidth="200" FontFamily="Segoe UI"/>
+            <Button x:Name="Register" Content="Register" VerticalContentAlignment="Center" Margin="29,170,21,0"  Height="30" Width="Auto" MaxWidth="200" FontSize="16" Cursor="Hand" Background="#FFB7D8A0"/>
+        </Grid>
         </StackPanel>
     </Grid>
 </Window>

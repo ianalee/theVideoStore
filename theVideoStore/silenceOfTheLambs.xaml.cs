@@ -29,6 +29,10 @@ namespace theVideoStore
             InitializeComponent();
             deserializeData();
             dataGrid.ItemsSource = clients;
+            
+                buttonEdit.IsEnabled = false;
+                buttonDelete.IsEnabled = false;
+            
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
@@ -42,11 +46,12 @@ namespace theVideoStore
             dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = clients;
             serializeData();
+            Logger.Log($"Client {Window.textBoxName.Text} {Window.textBoxSurname.Text} has been added");
         }
 
         private void serializeData()
         {
-            using (FileStream fs = new FileStream("clients.xml", FileMode.Create))
+            using (FileStream fs = new FileStream("clientsSilenceOfTheLambs.xml", FileMode.Create))
             {
                 XmlSerializer sr = new XmlSerializer(typeof(List<Client>));
                 sr.Serialize(fs, clients);
@@ -55,9 +60,9 @@ namespace theVideoStore
 
         public void deserializeData()
         {
-            if (File.Exists("clients.xml"))
+            if (File.Exists("clientsSilenceOfTheLambs.xml"))
             {
-                using (FileStream fs = new FileStream("clients.xml", FileMode.Open))
+                using (FileStream fs = new FileStream("clientsSilenceOfTheLambs.xml", FileMode.Open))
                 {
                     XmlSerializer dsr = new XmlSerializer(typeof(List<Client>));
                     clients = (List<Client>)dsr.Deserialize(fs);
@@ -67,20 +72,34 @@ namespace theVideoStore
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            buttonDelete.IsEnabled = true;
+            buttonEdit.IsEnabled = true;
         }
 
         private void selectionChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            buttonDelete.IsEnabled = (dataGrid.SelectedIndex != -1);
+            
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
+            Client cli = clients[dataGrid.SelectedIndex];
             clients.RemoveAt(dataGrid.SelectedIndex);
             dataGrid.ItemsSource = null;
             dataGrid.ItemsSource = clients;
             serializeData();
+            Logger.Log($"Client {cli.Name} {cli.Surname} has been deleted");
+        }
+
+        private void buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            Client cli = clients[dataGrid.SelectedIndex];
+            AddClientWindow edit = new AddClientWindow(cli.Name, cli.Surname, cli.From, cli.Till);
+            cli.Name = edit.textBoxName.Text;
+            cli.Surname = edit.textBoxSurname.Text;
+            cli.From = edit.textBoxFrom.Text;
+            cli.Till = edit.textBoxTill.Text;
+            Logger.Log($"Client {cli.Name} {cli.Surname}'s info has been changed");
         }
     }
 }

@@ -8,10 +8,17 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="forrestGump">
 
-    <Grid VerticalAlignment="Stretch">
+    <Grid>
         <StackPanel Orientation="Horizontal">
-            <Grid Background="Black">
-                <Label Content="Forest Gump (1994)" Foreground="White" FontFamily="Arial"/>
+            <Grid Background="Black" Width="Auto">
+                <StackPanel>
+                    <Label Content="Forrest Gump (1994)" Foreground="White" FontFamily="Arial" FontWeight="Bold"/>
+                    <TextBlock MaxWidth="200" Height="63" Foreground="White" TextWrapping="Wrap" Margin="10,0,0,0" Text="While not intelligent, Forrest Gump has accidentally been present at many historic moments, but his true love, Jenny Curran, eludes him"/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Height="Auto" Width="Auto" SelectionChanged="dataGrid_SelectionChanged"/>
+                    <Button x:Name="buttonAdd" Content="New client" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
+                    <Button x:Name="buttonDelete" Content="Delete Client" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click"/>
+
+                </StackPanel>
             </Grid>
             <Image Source="images/forrestGump.jpg" Stretch="Fill"/>
         </StackPanel>

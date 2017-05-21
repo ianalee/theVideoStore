@@ -12,13 +12,13 @@
         <StackPanel Orientation="Horizontal">
             <Grid Background="Black" Width="Auto">
                 <StackPanel>
-                <Label Content="Silence of the Lambs (1991)" Foreground="White" FontFamily="Arial" Margin="0,0,38,0" FontWeight="Bold"/>
-                <TextBlock MaxWidth="200" Height="63" Foreground="White" TextWrapping="Wrap" Text="A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another killer who skins his victims."/>
-                <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Height="Auto" Width="Auto" SelectionChanged="dataGrid_SelectionChanged"/>     
-                <Button x:Name="buttonAdd" Content="New client" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
-                <Button x:Name="buttonDelete" Content="Delete Client" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click"/>
-               
-               </StackPanel>
+                    <Label Content="Silence of the Lambs (1991)" Foreground="White" FontFamily="Arial" FontWeight="Bold"/>
+                    <TextBlock MaxWidth="200" Height="63" Foreground="White" TextWrapping="Wrap" Margin="10,0,0,0" Text="A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another killer who skins his victims."/>
+                    <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Height="Auto" Width="Auto" SelectionChanged="dataGrid_SelectionChanged"/>     
+                    <Button x:Name="buttonAdd" Content="New client" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top" Width="75" Click="buttonAdd_Click"/>
+                    <Button x:Name="buttonDelete" Content="Delete" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonDelete_Click"/>
+                    <Button x:Name="buttonEdit" Content="Edit" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonEdit_Click"/>
+                </StackPanel>
             </Grid>
             <Image Source="images/silenceOfTheLambs.jpg" Stretch="Fill"/>
         </StackPanel>
