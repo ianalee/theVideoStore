@@ -1,0 +1,24 @@
+﻿<Page x:Class="theVideoStore.addClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:theVideoStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="addClient">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/matilda.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox x:Name="textBoxName" Height="23" Text="Name" VerticalAlignment="Top" Width="Auto" MaxWidth="200"/>
+            <TextBox x:Name="textBoxSurname" Margin ="0,10,0,0" Height="23" Text="Surname" VerticalAlignment="Top" Width="Auto" MaxWidth="200"/>
+            <TextBox x:Name="textBoxFrom" Margin ="0,10,0,0" Height="23" Text="From" VerticalAlignment="Top" Width="Auto" MaxWidth="200"/>
+            <TextBox x:Name="textBoxTill" Margin ="0,10,0,0" Height="23" Text="Till" VerticalAlignment="Top" Width="Auto" MaxWidth="200"/>
+            <ComboBox x:Name="comboBoxFilms" Margin ="0,10,0,0" Width="Auto" MaxWidth="200" />
+            <Button x:Name="AddClient" Margin ="0,10,0,0" Content="Add client" VerticalContentAlignment="Center" Height="30" Width="Auto" MaxWidth="200" FontSize="16" Cursor="Hand" Background="Pink" Click="AddClient_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

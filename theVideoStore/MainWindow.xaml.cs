@@ -72,25 +72,18 @@ namespace theVideoStore
         }
         private void ButtonLogIn_Click(object sender, RoutedEventArgs e)
         {
-
-            var hash = CalculateHash("ilovechocolate");
+            
+            var hash = CalculateHash("admin");
 
             if (textLogin.Text == "Iana" && CalculateHash(Password.Password) == hash)
                 {
-                    IndexWindow home = new IndexWindow();
+                    homeWindow home = new homeWindow();
                     this.Close();
                     home.Show();
                 }
             else
                 MessageBox.Show("Incorrect login/password");
         }
-
-        private void ButtonRegister_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrationWindow reg = new RegistrationWindow();
-            this.Close();
-            reg.Show();
-
-        }
+        
     }
 }

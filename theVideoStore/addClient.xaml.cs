@@ -10,32 +10,34 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace theVideoStore
 {
     /// <summary>
-    /// Логика взаимодействия для AddClientWindow.xaml
+    /// Логика взаимодействия для addClient.xaml
     /// </summary>
-    public partial class AddClientWindow : Window
+    public partial class addClient : Page
     {
+        public addClient()
+        {
+            InitializeComponent();
+        }
+
         Client _newClient = new Client();
 
         public Client newClient
         {
             get { return _newClient; }
         }
-        public AddClientWindow()
-        {
-            InitializeComponent();
-        }
 
-        public AddClientWindow(string name, string surname, string from, string till)
+        public addClient(string name, string surname, string from, string till)
         {
             textBoxName.Text = Convert.ToString(name);
             textBoxSurname.Text = Convert.ToString(surname);
             textBoxFrom.Text = Convert.ToString(from);
-            textBoxTill.Text = Convert.ToString(till);   
+            textBoxTill.Text = Convert.ToString(till);
         }
         private void AddClient_Click(object sender, RoutedEventArgs e)
         {
@@ -84,8 +86,7 @@ namespace theVideoStore
             }
 
             _newClient = new Client(textBoxName.Text, textBoxSurname.Text, textBoxFrom.Text, textBoxTill.Text);
-
-            DialogResult = true;
+            
         }
     }
 }

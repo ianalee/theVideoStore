@@ -11,28 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using theVideoStore.Pages;
 
 namespace theVideoStore
 {
     /// <summary>
-    /// Логика взаимодействия для IndexWindow.xaml
+    /// Логика взаимодействия для homeWindow.xaml
     /// </summary>
-    public partial class IndexWindow : Window
+    public partial class homeWindow : Window
     {
-        public IndexWindow()
+        public homeWindow()
         {
             InitializeComponent();
-        }
-
-        private void BtnClick1(object sender, RoutedEventArgs e)
-        {
-            Home.Content = new silenceOfTheLambs();
-        }
-
-        private void BtnClick2(object sender, RoutedEventArgs e)
-        {
-            Home.Content = new forrestGump();
         }
     }
 }
