@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace theVideoStore
 {
-    public class Client
+    public class client
     {
         private string _name;
 
@@ -40,12 +40,16 @@ namespace theVideoStore
             set { _enddate = value; }
         }
 
-        public string showInfo()
+        private film _film;
+
+        public film Film
         {
-            return $"{_name} {_surname} c {_startdate} по {_enddate}";
+            get { return _film; }
+            set { _film = value; }
         }
 
-        public Client(string Name, string Surname, string From, string Till)
+
+        public client(string Name, string Surname, string From, string Till, )
         {
             _name = Name;
             _surname = Surname;
@@ -53,7 +57,7 @@ namespace theVideoStore
             _enddate = Till;
         }
 
-        public Client ()
+        public client ()
         {
 
         }

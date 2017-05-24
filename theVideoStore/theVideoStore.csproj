@@ -53,7 +53,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Images\favicon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,12 +81,20 @@
     <Compile Include="addClient.xaml.cs">
       <DependentUpon>addClient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Client.cs" />
+    <Compile Include="addFilm.xaml.cs">
+      <DependentUpon>addFilm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="client.cs" />
+    <Compile Include="film.cs" />
     <Compile Include="homeWindow.xaml.cs">
       <DependentUpon>homeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Logger.cs" />
     <Page Include="addClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addFilm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,13 +176,22 @@
     <Resource Include="Images\silenceOfTheLambsIcon.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\favicon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\clapperboard.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\pattern.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\movie-roll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\client.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

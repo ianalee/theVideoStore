@@ -19,9 +19,21 @@ namespace theVideoStore
     /// </summary>
     public partial class homeWindow : Window
     {
+
         public homeWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void newClient_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new addClient();
+        }
+
+        private void newFilm_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new addFilm();
         }
     }
 }

@@ -8,6 +8,33 @@
         Icon="Images/favicon.ico"
         Title="Welcome to the video store"
          MinWidth="350" MinHeight="525" WindowStartupLocation="CenterScreen" >
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="Beige" 
+                                                Duration="0:0:0.3" 
+                                                FillBehavior="Stop"
+                                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="LightBlue" 
+                                            Duration="0:0:0.3"
+                                            FillBehavior="HoldEnd"
+                                            Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="images/pattern.jpg" Stretch="UniformToFill"/>
@@ -25,7 +52,8 @@
                     <PasswordBox x:Name="Password" LostFocus="Password_LostFocus" Height="30" Width="Auto" MaxWidth="200" FontFamily="{StaticResource LatoRegular}" Margin="20,0,20,0" FontSize="14" VerticalContentAlignment="Center" PasswordChar="•" />
                     <TextBox x:Name="textPasswordHint" GotFocus="textPasswordHint_GotFocus" Text=" Password" FontFamily="{StaticResource LatoThin}" Height="30" Width="Auto" MaxWidth="200" Margin="20,0,20,0" FontSize="14" VerticalContentAlignment="Center"/>
                 </Grid>
-                <Button x:Name="ButtonLogIn" Margin="20,10,20,0" Content="Log in" Height="30" Width="Auto"  MaxWidth="200" FontFamily="{StaticResource LatoThin}" FontSize="16" Cursor="Hand" Background="#FFF5DBC0" Click="ButtonLogIn_Click" IsDefault="True"/>
+                <Button x:Name="ButtonLogIn" Margin="20,10,20,0" Content="Log in" Height="30" Width="Auto"  MaxWidth="200" FontFamily="{StaticResource LatoThin}" FontSize="16" Cursor="Hand" Background="Beige" Click="ButtonLogIn_Click" IsDefault="True" />
+
             </StackPanel>
         </Border>
     </Grid>
