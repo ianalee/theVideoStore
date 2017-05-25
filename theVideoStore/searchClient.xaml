@@ -1,0 +1,25 @@
+﻿<Page x:Class="theVideoStore.searchClient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:theVideoStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="searchClient">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="textBlockSearch" HorizontalAlignment="Center" FontFamily="{StaticResource LatoRegular}" Text="Search for: " FontSize="20"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock VerticalAlignment="Center" x:Name="textBlockName" FontSize="17" Text="Name:"/>
+                <TextBox x:Name="textBoxName" Width="200" Margin="10" FontSize="17" />
+                <TextBlock VerticalAlignment="Center" x:Name="textBlockSurname" FontSize="17" Text="Surname:"/>
+                <TextBox x:Name="textBoxSurname" Width="200" Margin="10" FontSize="17"/>
+            </StackPanel>
+
+            <Button x:Name="buttonSearch" FontSize="17" Height="Auto" Width="150" Background="#FFD8E6FF" Content="Search" Click="buttonSearch_Click" IsDefault="True"/>
+            <ListBox x:Name="listBoxSearch" Margin="20"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -23,7 +23,7 @@ namespace theVideoStore
     public partial class addClient : Page
     {
 
-        List<client> clients = new List<client>();
+        public List<client> clients = new List<client>();
 
         public addClient(List<film> films)
         {
@@ -37,7 +37,7 @@ namespace theVideoStore
               
         }
 
-        client _newClient = new client();
+        public client _newClient = new client();
 
         public client newClient
         {

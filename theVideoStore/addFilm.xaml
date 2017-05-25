@@ -59,6 +59,6 @@
                     Background="#FFFFCE44" 
                     Click="updateFilm_Click"/>
         </StackPanel>
-        <ListBox Grid.Column="1" FontFamily="{StaticResource LatoRegular}" x:Name="listBoxFilms" DisplayMemberPath="Info" SelectionChanged="listBoxFilms_SelectionChanged"/>
+        <ListBox Grid.Column="1" Background="#FFFEFEF6" FontFamily="{StaticResource LatoRegular}" x:Name="listBoxFilms" DisplayMemberPath="Info" SelectionChanged="listBoxFilms_SelectionChanged"/>
     </Grid>
 </Page>

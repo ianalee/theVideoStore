@@ -38,5 +38,17 @@ namespace theVideoStore
         {
             mainFrame.Content = new addFilm();
         }
+
+        private void searchFilms_Click(object sender, RoutedEventArgs e)
+        {
+            addFilm addFilm = new addFilm();
+            addClient addClient = new addClient(addFilm.films);
+            mainFrame.Content = new searchClient(addClient.clients);
+        }
+
+        private void about_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new about();
+        }
     }
 }

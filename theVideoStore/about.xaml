@@ -1,0 +1,14 @@
+﻿<Page x:Class="theVideoStore.about"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:theVideoStore"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="about">
+
+    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBlock FontFamily="{StaticResource LatoRegular}" FontSize="20" Margin="10" TextWrapping="Wrap" Text="Welcome to the Video Store. Here you can add new clients and search for them. Also you are able to add new films. Enjoy"/>
+    </Grid>
+</Page>
