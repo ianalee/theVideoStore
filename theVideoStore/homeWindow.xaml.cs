@@ -26,9 +26,12 @@ namespace theVideoStore
             
         }
 
+        
+
         private void newClient_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Content = new addClient();
+            addFilm add = new addFilm();
+            mainFrame.Content = new addClient(add.films);
         }
 
         private void newFilm_Click(object sender, RoutedEventArgs e)

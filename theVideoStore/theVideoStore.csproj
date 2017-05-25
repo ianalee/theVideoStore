@@ -53,8 +53,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Images\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -89,7 +88,7 @@
     <Compile Include="homeWindow.xaml.cs">
       <DependentUpon>homeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Logger.cs" />
+    <Compile Include="logger.cs" />
     <Page Include="addClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

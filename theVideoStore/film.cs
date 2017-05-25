@@ -40,6 +40,14 @@ namespace theVideoStore
             set { _year = value; }
         }
 
+        public string Info
+        {
+            get
+            {
+                return $"{_name} ({_year}) by {_director}. Genre: {_genre}";
+            }
+        }
+
         public film(string Name, int Year, string Genre, string Director)
         {
             _name = Name;

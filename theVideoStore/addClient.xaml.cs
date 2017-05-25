@@ -22,77 +22,19 @@ namespace theVideoStore
     /// </summary>
     public partial class addClient : Page
     {
-        private void textBoxName_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxName.Text))
-            {
-                textBoxName.Visibility = System.Windows.Visibility.Collapsed;
-                textBoxNameHint.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
-        private void textBoxNameHint_GotFocus(object sender, RoutedEventArgs e)
-        {
-            textBoxNameHint.Visibility = System.Windows.Visibility.Collapsed;
-            textBoxName.Visibility = System.Windows.Visibility.Visible;
-            textBoxName.Focus();
-        }
-
-        private void textBoxSurname_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxSurname.Text))
-            {
-                textBoxSurname.Visibility = System.Windows.Visibility.Collapsed;
-                textBoxSurnameHint.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
-        private void textBoxSurnameHint_GotFocus(object sender, RoutedEventArgs e)
-        {
-            textBoxSurnameHint.Visibility = System.Windows.Visibility.Collapsed;
-            textBoxSurname.Visibility = System.Windows.Visibility.Visible;
-            textBoxSurname.Focus();
-        }
-
-        private void textBoxFrom_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxFrom.Text))
-            {
-                textBoxFrom.Visibility = System.Windows.Visibility.Collapsed;
-                textBoxFromHint.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
-        private void textBoxFromHint_GotFocus(object sender, RoutedEventArgs e)
-        {
-            textBoxFromHint.Visibility = System.Windows.Visibility.Collapsed;
-            textBoxFrom.Visibility = System.Windows.Visibility.Visible;
-            textBoxFrom.Focus();
-        }
-
-        private void textBoxTill_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxTill.Text))
-            {
-                textBoxTill.Visibility = System.Windows.Visibility.Collapsed;
-                textBoxTillHint.Visibility = System.Windows.Visibility.Visible;
-            }
-        }
-
-        private void textBoxTillHint_GotFocus(object sender, RoutedEventArgs e)
-        {
-            textBoxTillHint.Visibility = System.Windows.Visibility.Collapsed;
-            textBoxTill.Visibility = System.Windows.Visibility.Visible;
-            textBoxTill.Focus();
-        }
 
         List<client> clients = new List<client>();
 
-        public addClient()
+        public addClient(List<film> films)
         {
             InitializeComponent();
             deserializeData();
-            dataGridClients.ItemsSource = clients;
+
+            listBoxClients.ItemsSource = clients;
+
+            comboBoxFilms.ItemsSource = null;
+            comboBoxFilms.ItemsSource = films;
+              
         }
 
         client _newClient = new client();
@@ -118,42 +60,52 @@ namespace theVideoStore
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBoxFrom.Text))
+            if (string.IsNullOrWhiteSpace(datePickerFrom.Text))
             {
                 MessageBox.Show("Please, enter the start date", "Error");
-                textBoxFrom.Focus();
+                datePickerFrom.Focus();
                 return;
             }
 
             DateTime value;
 
-            if (DateTime.TryParseExact(textBoxFrom.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out value) == false)
+            if (DateTime.TryParseExact(datePickerFrom.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out value) == false)
             {
                 MessageBox.Show("Please, enter the start date in dd/mm/yyyy format", "Error");
-                textBoxFrom.Focus();
+                datePickerFrom.Focus();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBoxTill.Text))
+            if (string.IsNullOrWhiteSpace(datePickerTill.Text))
             {
                 MessageBox.Show("Please, enter the end date", "Error");
-                textBoxTill.Focus();
+                datePickerTill.Focus();
                 return;
             }
 
-            if (DateTime.TryParseExact(textBoxTill.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out value) == false)
+            if (DateTime.TryParseExact(datePickerTill.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out value) == false)
             {
                 MessageBox.Show("Please, enter the end date in dd/mm/yyyy format", "Error");
-                textBoxTill.Focus();
+                datePickerTill.Focus();
                 return;
             }
 
-            _newClient = new client(textBoxName.Text, textBoxSurname.Text, textBoxFrom.Text, textBoxTill.Text);
+            if (comboBoxFilms.SelectedItem == null)
+            {
+                MessageBox.Show("Please, choose a film");
+                comboBoxFilms.Focus();
+                return;
+            }
+            
+            _newClient.Film = comboBoxFilms.SelectedItem as film;
+            _newClient = new client(textBoxName.Text, textBoxSurname.Text, datePickerFrom.Text, datePickerTill.Text, _newClient.Film);
+            
             clients.Add(_newClient);
-            dataGridClients.ItemsSource = null;
-            dataGridClients.ItemsSource = clients;
+            listBoxClients.ItemsSource = null;
+            listBoxClients.ItemsSource = clients;
             seriliazeData();
-            Logger.Log($"Client {_newClient.Name} {_newClient.Surname} has been added");
+            logger.Log($"Client {_newClient.Name} {_newClient.Surname} has been added");
+            
         }
 
 
@@ -182,43 +134,68 @@ namespace theVideoStore
         {
             try
             {
-                clients.RemoveAt(dataGridClients.SelectedIndex);
-                dataGridClients.ItemsSource = null;
-                dataGridClients.ItemsSource = clients;
+                clients.RemoveAt(listBoxClients.SelectedIndex);
+                listBoxClients.ItemsSource = null;
+                listBoxClients.ItemsSource = clients;
+
+                textBoxName.Clear();
+                textBoxSurname.Clear();
+
+                seriliazeData();
+                logger.Log($"{_newClient.Name} {_newClient.Surname} has been deleted");
             }
-            catch
+            catch 
             {
                 MessageBox.Show("Please, select a client you want to delete", "Error");
             }
-            seriliazeData();
+        }
 
-            Logger.Log($"{_newClient.Name} {_newClient.Surname} has been deleted");
+        public client _updatedClient = new client();
+
+        public client updatedClient
+        {
+            get { return _updatedClient; }
         }
 
         private void updateClient_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                clients.RemoveAt(listBoxClients.SelectedIndex);
+
+                _updatedClient.Film = comboBoxFilms.SelectedItem as film;
+                _updatedClient = new client(textBoxName.Text, textBoxSurname.Text, datePickerFrom.Text, datePickerTill.Text, _updatedClient.Film);
+                clients.Add(_updatedClient);
+
+                listBoxClients.ItemsSource = null;
+                listBoxClients.ItemsSource = clients;
+            }
+            catch
+            {
+                MessageBox.Show("Please, select a film you want to update", "Error");
+            }
         }
 
-        private void dataGridClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listBoxClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (e.AddedItems.Count > 0)
+            try
             {
-                textBoxName.Text = (e.AddedItems[0] as client).Name;
-                textBoxSurname.Text = (e.AddedItems[0] as client).Surname;
-                textBoxFrom.Text = (e.AddedItems[0] as client).From.ToString();
-                textBoxTill.Text = (e.AddedItems[0] as client).Till.ToString();
+                if (e.AddedItems.Count > 0)
+                    {
+                        textBoxName.Text = (e.AddedItems[0] as client).Name;
+                        textBoxSurname.Text = (e.AddedItems[0] as client).Surname;
+                        datePickerFrom.Text = (e.AddedItems[0] as client).From.ToString();
+                        datePickerTill.Text = (e.AddedItems[0] as client).Till.ToString();
+                        comboBoxFilms.Text = (e.AddedItems[0] as client).Film.Name;
+                    }
+                 }
+            
+            catch
+            {
+                MessageBox.Show("Please, choose a client", "Error");
             }
         }
 
         
-        public void comboBoxFilms_Loaded(object sender, RoutedEventArgs e)
-        {
-            comboBoxFilms.ItemsSource = 
-        }
-
-        private void comboBoxFilms_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

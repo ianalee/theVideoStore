@@ -13,23 +13,15 @@
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Grid Margin="0,20,0,0">
-                <TextBox x:Name="textBoxName" LostFocus="textBoxName_LostFocus" Height="23" VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14" />
-                <TextBox x:Name="textBoxNameHint" GotFocus="textBoxNameHint_GotFocus" Text="Name" Height="23" Width="Auto" MaxWidth="200" MinWidth="150" VerticalContentAlignment="Center" FontFamily="{StaticResource LatoThin}" FontSize="14"/>
-            </Grid>
-            <Grid Margin="0,20,0,0">
-                <TextBox x:Name="textBoxYear" LostFocus="textBoxYear_LostFocus" Height="23"  VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14"/>
-                <TextBox x:Name="textBoxYearHint" GotFocus="textBoxYearHint_GotFocus" Text=" Year" Height="23" Width="Auto" MaxWidth="200" MinWidth="150" VerticalContentAlignment="Center"  FontFamily="{StaticResource LatoThin}" FontSize="14"/>
-            </Grid>
-            <Grid Margin="0,20,0,0">
-                <TextBox x:Name="textBoxGenre" LostFocus="textBoxGenre_LostFocus" Height="23"  VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14"/>
-                <TextBox x:Name="textBoxGenreHint" GotFocus="textBoxGenreHint_GotFocus" Text="Genre" Height="23" Width="Auto" MaxWidth="200" MinWidth="150" VerticalContentAlignment="Center"  FontFamily="{StaticResource LatoThin}" FontSize="14"/>
-            </Grid>
-            <Grid Margin="0,20,0,0">
-                <TextBox x:Name="textBoxDirector" LostFocus="textBoxDirector_LostFocus" Height="23" VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14"/>
-                <TextBox x:Name="textBoxDirectorHint" GotFocus="textBoxDirectorHint_GotFocus" Text="Director" Height="23" Width="Auto" MaxWidth="200" MinWidth="150" VerticalContentAlignment="Center"  FontFamily="{StaticResource LatoThin}" FontSize="14"/>
-            </Grid>
+        <StackPanel Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Name: " FontSize="14" Margin="0,20,0,0"/>
+            <TextBox x:Name="textBoxName"  Height="23" VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14"/>
+            <TextBlock Text="Year: " FontSize="14" Margin="0,10,0,0"/>
+            <TextBox x:Name="textBoxYear"  Height="23"  VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14" />
+            <TextBlock Text="Genre: " FontSize="14" Margin="0,10,0,0"/>
+            <TextBox x:Name="textBoxGenre" Height="23"  VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14" />
+            <TextBlock Text="Director: " FontSize="14" Margin="0,10,0,0"/>
+            <TextBox x:Name="textBoxDirector" Height="23" VerticalAlignment="Top" Width="Auto" MaxWidth="200" MinWidth="150" FontSize="14"/>
             <Button x:Name="addNewFilm" 
                     Margin ="0,10,0,0" 
                     Content="Add film" 
@@ -67,6 +59,6 @@
                     Background="#FFFFCE44" 
                     Click="updateFilm_Click"/>
         </StackPanel>
-        <DataGrid Grid.Column="1" Background="Beige" x:Name="dataGridFilms" SelectionChanged="dataGridFilms_SelectionChanged"/>
+        <ListBox Grid.Column="1" FontFamily="{StaticResource LatoRegular}" x:Name="listBoxFilms" DisplayMemberPath="Info" SelectionChanged="listBoxFilms_SelectionChanged"/>
     </Grid>
 </Page>

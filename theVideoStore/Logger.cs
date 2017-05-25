@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace theVideoStore
 {
-    public class Logger
+    public class logger
     {
         public static void Log(string message)
         {

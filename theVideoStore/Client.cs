@@ -48,13 +48,21 @@ namespace theVideoStore
             set { _film = value; }
         }
 
+        public string Info
+        {
+            get
+            {
+                return $"{_name} {_surname} rented {_film.Name} from {_startdate} to {_enddate}";
+            }
+        }
 
-        public client(string Name, string Surname, string From, string Till, )
+        public client(string Name, string Surname, string From, string Till, film Film)
         {
             _name = Name;
             _surname = Surname;
             _startdate = From;
             _enddate = Till;
+            _film = Film;
         }
 
         public client ()
