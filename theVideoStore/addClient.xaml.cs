@@ -105,6 +105,9 @@ namespace theVideoStore
             listBoxClients.ItemsSource = clients;
             seriliazeData();
             logger.Log($"Client {_newClient.Name} {_newClient.Surname} has been added");
+
+            textBoxName.Clear();
+            textBoxSurname.Clear();
             
         }
 
